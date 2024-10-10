@@ -60,3 +60,29 @@ function solve_equation ()
         input.value = "Error";
     }
 }
+
+document.addEventListener( 'keydown', function ( event )
+{
+    let key = event.key;
+    let operators = [ '+', '-', '/', '*', '.'];
+
+    if ( !isNaN( key ) || operators.includes(key))
+    {
+        isClicked( key );
+    }
+
+    if ( key === 'Enter' )
+    {
+        solve_equation();
+    }
+
+    if ( key === 'Backspace' )
+    {
+        deleteLastInput();
+    }
+
+    if ( key === 'Escape' || key.toLowerCase === 'c'  || key === 'Delete')
+    {
+        clearInput();
+    }
+} );
