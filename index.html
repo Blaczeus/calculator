@@ -16,28 +16,28 @@
         <div class="calculator">
             <form>
                 <div class="form-group">
-                    <input type="text" id="input" class="form-control" readonly required>
+                    <input type="text" id="calculatorDisplay" class="form-control" readonly required>
                 </div>
             </form>
             <div class="button">
-                <button type="button" class="btn btn-orange btn-custom" onclick="isClicked('+')">+</button>
-                <button type="button" class="btn btn-orange btn-custom" onclick="isClicked('-')">-</button>
-                <button type="button" class="btn btn-orange btn-custom" onclick="isClicked('*')">*</button>
-                <button type="button" class="btn btn-orange btn-custom" onclick="isClicked('/')">/</button>
-                <button type="button" class="btn btn-grey btn-custom" onclick="isClicked(9)">9</button>
-                <button type="button" class="btn btn-grey btn-custom" onclick="isClicked(8)">8</button>
-                <button type="button" class="btn btn-grey btn-custom" onclick="isClicked(7)">7</button>
-                <button type="button" class="btn btn-grey btn-custom" onclick="isClicked(6)">6</button>
-                <button type="button" class="btn btn-grey btn-custom" onclick="isClicked(5)">5</button>
-                <button type="button" class="btn btn-grey btn-custom" onclick="isClicked(4)">4</button>
-                <button type="button" class="btn btn-grey btn-custom" onclick="isClicked(3)">3</button>
-                <button type="button" class="btn btn-grey btn-custom" onclick="isClicked(2)">2</button>
-                <button type="button" class="btn btn-grey btn-custom" onclick="isClicked(1)">1</button>
-                <button type="button" class="btn btn-grey btn-custom" onclick="isClicked(0)">0</button>
-                <button type="button" class="btn btn-grey btn-custom" onclick="isClicked('.')">.</button>
-                <button type="button" class="btn btn-grey btn-custom" onclick="solve_equation()">=</button>
-                <button type="button" class="btn btn-clear btn-custom " onclick="deleteLastInput()">DEL</button>
-                <button type="button" class="btn btn-success btn-custom " onclick="clearInput()">AC</button>
+                <button type="button" class="btn btn-orange btn-custom" onclick="handleKeyPress('+')">+</button>
+                <button type="button" class="btn btn-orange btn-custom" onclick="handleKeyPress('-')">-</button>
+                <button type="button" class="btn btn-orange btn-custom" onclick="handleKeyPress('*')">*</button>
+                <button type="button" class="btn btn-orange btn-custom" onclick="handleKeyPress('/')">/</button>
+                <button type="button" class="btn btn-grey btn-custom" onclick="handleKeyPress(9)">9</button>
+                <button type="button" class="btn btn-grey btn-custom" onclick="handleKeyPress(8)">8</button>
+                <button type="button" class="btn btn-grey btn-custom" onclick="handleKeyPress(7)">7</button>
+                <button type="button" class="btn btn-grey btn-custom" onclick="handleKeyPress(6)">6</button>
+                <button type="button" class="btn btn-grey btn-custom" onclick="handleKeyPress(5)">5</button>
+                <button type="button" class="btn btn-grey btn-custom" onclick="handleKeyPress(4)">4</button>
+                <button type="button" class="btn btn-grey btn-custom" onclick="handleKeyPress(3)">3</button>
+                <button type="button" class="btn btn-grey btn-custom" onclick="handleKeyPress(2)">2</button>
+                <button type="button" class="btn btn-grey btn-custom" onclick="handleKeyPress(1)">1</button>
+                <button type="button" class="btn btn-grey btn-custom" onclick="handleKeyPress(0)">0</button>
+                <button type="button" class="btn btn-grey btn-custom" onclick="handleKeyPress('.')">.</button>
+                <button type="button" class="btn btn-grey btn-custom" onclick="calculateResult()">=</button>
+                <button type="button" class="btn btn-clear btn-custom " onclick="deleteLastChar()">DEL</button>
+                <button type="button" class="btn btn-success btn-custom " onclick="clearDisplay()">AC</button>
             </div>
         </div>
 

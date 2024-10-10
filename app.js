@@ -1,24 +1,24 @@
-let input = document.getElementById( 'input' );
+let calculatorDisplay = document.getElementById( 'calculatorDisplay' );
 let isResultDisplayed = false;
 
-function deleteLastInput ()
+function deleteLastChar ()
 {
-    input.value = input.value.slice( 0, -1 );
+    calculatorDisplay.value = calculatorDisplay.value.slice( 0, -1 );
 }
 
-function clearInput ()
+function clearDisplay ()
 {
-    input.value = '';
+    calculatorDisplay.value = '';
 }
 
-function isClicked ( key )
+function handleKeyPress( key )
 {
     let operators = [ '+', '-', '*', '/' ];
-    let lastChar = input.value.slice( -1 );
+    let lastChar = calculatorDisplay.value.slice( -1 );
 
     if ( isResultDisplayed && !operators.includes( key ) )
     {
-        clearInput();
+        clearDisplay();
         isResultDisplayed = false;
     }
     if ( operators.includes( lastChar ) && operators.includes( key ) )
@@ -26,38 +26,38 @@ function isClicked ( key )
         return;
     }
 
-    let lastNumber = input.value.split( /[\+\-\*\/]/ ).pop();
+    let lastNumber = calculatorDisplay.value.split( /[\+\-\*\/]/ ).pop();
     if ( key === '.' && lastNumber.includes( '.' ) )
     {
         return;
     }
 
-    input.value += key;
+    calculatorDisplay.value += key;
 }
 
 
-function solve_equation ()
+function calculateResult ()
 {
     let operators = [ '+', '-', '*', '/' ];
-    let lastChar = input.value.slice( -1 );
+    let lastChar = calculatorDisplay.value.slice( -1 );
 
     if ( operators.includes( lastChar ))
     {
         return;
     }
 
-    let expression = input.value;
+    let expression = calculatorDisplay.value;
     try
     {
         const result = eval( expression.replace( /[^0-9\+\-\*\/\.]/g, '' ) );
-        clearInput();
+        clearDisplay();
         
-        input.value = result;
+        calculatorDisplay.value = result;
 
         isResultDisplayed = true;
     } catch ( error )
     {
-        input.value = "Error";
+        calculatorDisplay.value = "Error";
     }
 }
 
@@ -68,21 +68,21 @@ document.addEventListener( 'keydown', function ( event )
 
     if ( !isNaN( key ) || operators.includes(key))
     {
-        isClicked( key );
+        handleKeyPress( key );
     }
 
     if ( key === 'Enter' )
     {
-        solve_equation();
+        calculateResult();
     }
 
     if ( key === 'Backspace' )
     {
-        deleteLastInput();
+        deleteLastChar();
     }
 
     if ( key === 'Escape' || key.toLowerCase === 'c'  || key === 'Delete')
     {
-        clearInput();
+        clearDisplay();
     }
 } );
