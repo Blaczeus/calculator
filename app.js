@@ -1,4 +1,5 @@
 let input = document.getElementById( 'input' );
+let isResultDisplayed = false;
 
 function deleteLastInput ()
 {
@@ -15,6 +16,11 @@ function isClicked ( key )
     let operators = [ '+', '-', '*', '/' ];
     let lastChar = input.value.slice( -1 );
 
+    if ( isResultDisplayed && !operators.includes( key ) )
+    {
+        clearInput();
+        isResultDisplayed = false;
+    }
     if ( operators.includes( lastChar ) && operators.includes( key ) )
     {
         return;
@@ -32,9 +38,25 @@ function isClicked ( key )
 
 function solve_equation ()
 {
+    let operators = [ '+', '-', '*', '/' ];
+    let lastChar = input.value.slice( -1 );
+
+    if ( operators.includes( lastChar ))
+    {
+        return;
+    }
+
     let expression = input.value;
-    const result = eval( expression.replace( /[^0-9\+\-\*\/]/g, '' ) );
-    clearInput();
-    input.value = result;
-    
+    try
+    {
+        const result = eval( expression.replace( /[^0-9\+\-\*\/\.]/g, '' ) );
+        clearInput();
+        
+        input.value = result;
+
+        isResultDisplayed = true;
+    } catch ( error )
+    {
+        input.value = "Error";
+    }
 }
