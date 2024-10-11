@@ -1,4 +1,4 @@
-let calculatorDisplay = document.getElementById( 'calculatorDisplay' );
+let calculatorDisplay = document.getElementById( 'calculatorInput' );
 let isResultDisplayed = false;
 let store = [];
 
@@ -62,7 +62,7 @@ function getStoredResult ()
         isResultDisplayed = true;
     } else
     {
-        clearDisplay();        
+        clearDisplay();
     }
 }
 
@@ -95,6 +95,19 @@ function calculateResult ()
         calculatorDisplay.value = "Error";
     }
 }
+
+function updateTimeAndDate ()
+{
+    const timeDateDisplay = document.getElementById( 'timeDateDisplay' );
+    const now = new Date();
+    const time = now.toLocaleTimeString();
+    const date = now.toLocaleDateString();
+    timeDateDisplay.textContent = `${ time } | ${ date }`;
+}
+
+setInterval( updateTimeAndDate, 1000 );
+
+updateTimeAndDate();
 
 document.addEventListener( 'keydown', function ( event )
 {

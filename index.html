@@ -14,8 +14,9 @@
     <body>
         <div class="calculator">
             <form>
-                <div class="form-group">
-                    <input type="text" id="calculatorDisplay" class="form-control" readonly required>
+                <div id="calculatorDisplay" class="form-group">
+                    <input type="text" id="calculatorInput" class="form-control" readonly required>
+                    <div id="timeDateDisplay" class="text-right small"></div>
                 </div>
             </form>
             <div class="button">
@@ -34,9 +35,9 @@
                 <button type="button" class="btn btn-grey btn-custom" onclick="handleKeyPress(1)">1</button>
                 <button type="button" class="btn btn-grey btn-custom" onclick="handleKeyPress(0)">0</button>
                 <button type="button" class="btn btn-grey btn-custom" onclick="handleKeyPress('.')">.</button>
-                <button type="button" class="btn btn-secondary btn-custom" onclick="getStoredResult()">MEM</button>
-                <button type="button" class="btn btn-clear btn-custom" onclick="deleteLastChar()">DEL</button>
-                <button type="button" class="btn btn-danger btn-custom" onclick="clearMemory()">CLR</button>
+                <button type="button" class="btn btn-secondary btn-custom" onclick="getStoredResult()">M</button>
+                <button type="button" class="btn btn-clear btn-custom" onclick="deleteLastChar()">Del</button>
+                <button type="button" class="btn btn-danger btn-custom" onclick="clearMemory()">Clr</button>
                 <button type="button" class="btn btn-success btn-custom" onclick="clearDisplay()">AC</button>
                 <button type="button" class="btn btn-grey btn-custom" onclick="calculateResult()">=</button>
             </div>
