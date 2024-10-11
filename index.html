@@ -7,7 +7,6 @@
         <title>JavaScript Calculator</title>
         <link rel="stylesheet" href="style.css">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-
         <!-- Bootstrap CSS CDN -->
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     </head>
@@ -35,9 +34,11 @@
                 <button type="button" class="btn btn-grey btn-custom" onclick="handleKeyPress(1)">1</button>
                 <button type="button" class="btn btn-grey btn-custom" onclick="handleKeyPress(0)">0</button>
                 <button type="button" class="btn btn-grey btn-custom" onclick="handleKeyPress('.')">.</button>
+                <button type="button" class="btn btn-secondary btn-custom" onclick="getStoredResult()">MEM</button>
+                <button type="button" class="btn btn-clear btn-custom" onclick="deleteLastChar()">DEL</button>
+                <button type="button" class="btn btn-danger btn-custom" onclick="clearMemory()">CLR</button>
+                <button type="button" class="btn btn-success btn-custom" onclick="clearDisplay()">AC</button>
                 <button type="button" class="btn btn-grey btn-custom" onclick="calculateResult()">=</button>
-                <button type="button" class="btn btn-clear btn-custom " onclick="deleteLastChar()">DEL</button>
-                <button type="button" class="btn btn-success btn-custom " onclick="clearDisplay()">AC</button>
             </div>
         </div>
 
